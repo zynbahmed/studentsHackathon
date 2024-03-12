@@ -1,8 +1,19 @@
-<script setup></script>
+<script>
+import NavBar from './components/NavBar.vue'
+export default {
+  name: 'App',
+  components: { NavBar }
+}
+</script>
 
 <template>
   <div>
-    <router-view header="Students"></router-view>
+    <header>
+      <NavBar />
+    </header>
+    <main>
+      <router-view header="Students"></router-view>
+    </main>
   </div>
 </template>
 
