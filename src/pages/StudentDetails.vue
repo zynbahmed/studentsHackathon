@@ -1,18 +1,25 @@
 <script>
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import CourseCard from '../components/CourseCard.vue'
 
 export default {
   name: 'StudentDetails',
+  components: { CourseCard },
   data: function () {
     return {
       student: {},
-      courses: []
+      courses: [],
+      grades: [],
+      selectedCourse: null,
+      selectedGrade: null,
+      filteredCourses: []
     }
   },
   mounted() {
     this.getDetails()
     this.getCourses()
+    this.getGrades()
   },
   methods: {
     async getDetails() {
@@ -22,11 +29,27 @@ export default {
     },
     async getCourses() {
       const response = await axios.get(`${BASE_URL}/courses`)
-      this.courses = response.data.filter((course) => {
-        if (!this.student.courses.includes(course.name)) {
-          return course
-        }
-      })
+      this.courses = response.data
+      this.filteredCourses = this.courses.filter(
+        (course1) =>
+          !this.student.courses?.some((course) => course._id === course1._id)
+      )
+    },
+    async getGrades() {
+      const response = await axios.get(`${BASE_URL}/grades`)
+      this.grades = response.data
+    },
+    async enroll() {
+      const id = this.$route.params.id
+      const course = { course: this.selectedCourse }
+      await axios.put(`${BASE_URL}/students/${id}`, course)
+      this.courses = ''
+    },
+    selectCourse(event) {
+      this.selectedCourse = event.target.value
+    },
+    selectGrade(event) {
+      this.selectedGrade = event.target.value
     }
   }
 }
@@ -38,12 +61,25 @@ export default {
     <h3>Email: {{ student.email }}</h3>
     <h3>ID: {{ student.id }}</h3>
     <div class="enroll">
-      <select name="courses">
-        <option v-for="course in courses" :value="course._id">
+      <select v-if="courses" name="courses" @change="selectCourse">
+        <option v-for="course in filteredCourses" :value="course._id">
           {{ course.name }}
         </option>
       </select>
+      <select v-if="grades" name="grades" @change="selectGrade">
+        <option v-for="grade in grades" :value="grade._id">
+          {{ grade.letter }}
+        </option>
+      </select>
       <button @click="enroll">Enroll</button>
+    </div>
+    <h3>Registered in:</h3>
+    <div class="course-list">
+      <CourseCard
+        v-for="course in student.courses"
+        :course="course"
+        :student="student"
+      />
     </div>
   </div>
 </template>
