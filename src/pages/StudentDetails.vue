@@ -57,11 +57,13 @@ export default {
     <h3>ID: {{ student.id }}</h3>
     <div class="enroll">
       <select v-if="courses" name="courses" @change="selectCourse">
+        <option selected disabled>Select a Course</option>
         <option v-for="course in courses" :value="course._id">
           {{ course.name }}
         </option>
       </select>
       <select v-if="grades" name="grades" @change="selectGrade">
+        <option selected disabled>Select a Grade</option>
         <option v-for="grade in grades" :value="grade._id">
           {{ grade.letter }}
         </option>

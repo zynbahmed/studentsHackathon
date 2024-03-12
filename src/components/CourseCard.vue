@@ -5,7 +5,7 @@ export default {
   name: 'CourseCard',
   data: function () {
     return {
-      grade: ''
+      grade: null
     }
   },
   props: ['course', 'student'],
@@ -14,8 +14,17 @@ export default {
   },
   methods: {
     getGrade() {
-      // console.log(course)
+      if (!this.course || !this.course.grades) {
+      }
+
+      const studentGrade = this.course.grades.find(
+        (gradeEntry) => gradeEntry.student._id.toString() === this.student._id.toString()
+      )
+
+      if (studentGrade) {
+        this.grade = studentGrade.grade
     }
+  }
   }
 }
 </script>
@@ -25,7 +34,7 @@ export default {
     <h3>Course: {{ course.name }}</h3>
     <p>
       Grade:
-      <!-- {{ course.grades[0].student }} -->
+      {{ this.grade ? this.grade.letter || this.grade : 'N/A' }}
     </p>
   </div>
 </template>
