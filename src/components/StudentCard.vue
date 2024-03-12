@@ -1,4 +1,5 @@
 <script>
+import { BASE_URL } from '../globals'
 export default {
   name: 'StudentCard'
 }
