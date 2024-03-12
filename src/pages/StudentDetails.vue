@@ -36,7 +36,7 @@ export default {
     },
     async enroll() {
       const id = this.$route.params.id
-      const course = { course: this.selectedCourse }
+      const course = { course: this.selectedCourse, grade: this.selectedGrade }
       await axios.put(`${BASE_URL}/students/${id}`, course)
       this.$router.push(`/students/${id}`)
     },
