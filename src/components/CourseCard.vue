@@ -19,7 +19,7 @@ export default {
       Grade:
       {{
         course.grades.find(
-          ({ studentCheck }) => studentCheck._id === student._id
+          ({ studentCheck }) => studentCheck?._id === student?._id
         )?.grade.letter
       }}
     </p>

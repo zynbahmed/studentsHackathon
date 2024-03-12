@@ -38,7 +38,6 @@ export default {
       const id = this.$route.params.id
       const course = { course: this.selectedCourse }
       await axios.put(`${BASE_URL}/students/${id}`, course)
-      this.courses = ''
     },
     selectCourse(event) {
       this.selectedCourse = event.target.value
