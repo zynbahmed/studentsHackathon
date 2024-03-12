@@ -12,8 +12,7 @@ export default {
       courses: [],
       grades: [],
       selectedCourse: null,
-      selectedGrade: null,
-      filteredCourses: []
+      selectedGrade: null
     }
   },
   mounted() {
@@ -30,10 +29,6 @@ export default {
     async getCourses() {
       const response = await axios.get(`${BASE_URL}/courses`)
       this.courses = response.data
-      this.filteredCourses = this.courses.filter(
-        (course1) =>
-          !this.student.courses?.some((course) => course._id === course1._id)
-      )
     },
     async getGrades() {
       const response = await axios.get(`${BASE_URL}/grades`)
@@ -62,7 +57,7 @@ export default {
     <h3>ID: {{ student.id }}</h3>
     <div class="enroll">
       <select v-if="courses" name="courses" @change="selectCourse">
-        <option v-for="course in filteredCourses" :value="course._id">
+        <option v-for="course in courses" :value="course._id">
           {{ course.name }}
         </option>
       </select>
