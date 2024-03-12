@@ -45,6 +45,15 @@ export default {
     },
     selectGrade(event) {
       this.selectedGrade = event.target.value
+    },
+    filterAvailableCourses() {
+      if (!this.courses || !this.student.courses) {
+        return []
+      }
+
+      return this.courses.filter((course) => {
+        return !this.student.courses.some((enrolledCourse) => enrolledCourse._id.toString() === course._id.toString())
+      })
     }
   }
 }
@@ -58,7 +67,7 @@ export default {
     <div class="enroll">
       <select v-if="courses" name="courses" @change="selectCourse">
         <option selected disabled>Select a Course</option>
-        <option v-for="course in courses" :value="course._id">
+        <option v-for="course in filterAvailableCourses()" :value="course._id">
           {{ course.name }}
         </option>
       </select>
