@@ -14,9 +14,9 @@ export default {
 
 <template>
   <div class="course-card">
-    <h3>Name: {{ course.name }}</h3>
+    <h3>Course: {{ course.name }}</h3>
     <p>
-      Course:
+      Grade:
       {{
         course.grades.find(
           ({ studentCheck }) => studentCheck._id === student._id
