@@ -38,7 +38,7 @@ export default {
       const id = this.$route.params.id
       const course = { course: this.selectedCourse }
       await axios.put(`${BASE_URL}/students/${id}`, course)
-      this.courses = ''
+      this.$router.push(`/students/${id}`)
     },
     selectCourse(event) {
       this.selectedCourse = event.target.value
@@ -70,11 +70,9 @@ export default {
     </div>
     <h3>Registered in:</h3>
     <div class="course-list">
-      <CourseCard
-        v-for="course in student.courses"
-        :course="course"
-        :student="student"
-      />
+      <div v-for="course in student.courses">
+        <CourseCard v-if="course" :course="course" :student="student" />
+      </div>
     </div>
   </div>
 </template>
