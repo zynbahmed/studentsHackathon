@@ -1,12 +1,14 @@
 <script>
-import { BASE_URL } from '../globals'
 export default {
-  name: 'StudentCard'
+  name: 'StudentCard',
+  props: ['student']
 }
 </script>
 
 <template>
-  <div>
-    <h3>Student Card</h3>
+  <div class="student-card">
+    <h3>Name: {{ student.name }}</h3>
+    <h4>Email: {{ student.email }}</h4>
+    <h4>ID: {{ student.id }}</h4>
   </div>
 </template>
