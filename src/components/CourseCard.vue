@@ -8,7 +8,15 @@ export default {
       grade: ''
     }
   },
-  props: ['course', 'student']
+  props: ['course', 'student'],
+  mounted() {
+    this.getGrade()
+  },
+  methods: {
+    getGrade() {
+      // console.log(course)
+    }
+  }
 }
 </script>
 
@@ -17,11 +25,7 @@ export default {
     <h3>Course: {{ course.name }}</h3>
     <p>
       Grade:
-      {{
-        course.grades.find(
-          ({ studentCheck }) => studentCheck._id === student._id
-        )?.grade.letter
-      }}
+      <!-- {{ course.grades[0].student }} -->
     </p>
   </div>
 </template>
