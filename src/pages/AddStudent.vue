@@ -16,7 +16,8 @@ export default {
     },
     async handleSubmit(event) {
       event.preventDefault()
-      await axios.post(`${BASE_URL}/students`, { name, email, id })
+      const student = { name: this.name, email: this.email, id: this.id }
+      await axios.post(`${BASE_URL}/students`, student)
       this.name = ''
       this.email = ''
       this.id = null
