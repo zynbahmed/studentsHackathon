@@ -2,12 +2,10 @@
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 export default {
-  name: 'AddStudent',
+  name: 'AddCourse',
   data: function () {
     return {
-      name: '',
-      email: '',
-      id: null
+      name: ''
     }
   },
   methods: {
@@ -16,30 +14,19 @@ export default {
     },
     async handleSubmit(event) {
       event.preventDefault()
-      const student = { name: this.name, email: this.email, id: this.id }
-      await axios.post(`${BASE_URL}/students`, student)
+      const course = { name: this.name }
+      await axios.post(`${BASE_URL}/courses`, course)
       this.name = ''
-      this.email = ''
-      this.id = null
     }
   }
 }
 </script>
 
 <template>
-  <div class="student-form">
+  <div class="course-form">
     <form action="" @submit="handleSubmit">
       <label for="name">Name</label>
       <input type="text" id="name" @change="handleFormChange" :value="name" />
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        @change="handleFormChange"
-        :value="email"
-      />
-      <label for="id">ID</label>
-      <input type="number" id="id" @change="handleFormChange" :value="id" />
       <button>Add</button>
     </form>
   </div>
