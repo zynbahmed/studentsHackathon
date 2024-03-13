@@ -1,10 +1,10 @@
 <script>
-import axios from 'axios'
-import { BASE_URL } from '../globals'
-import CourseCard from '../components/CourseCard.vue'
+import axios from "axios"
+import { BASE_URL } from "../globals"
+import CourseCard from "../components/CourseCard.vue"
 
 export default {
-  name: 'StudentDetails',
+  name: "StudentDetails",
   components: { CourseCard },
   data: function () {
     return {
@@ -14,7 +14,7 @@ export default {
       selectedCourse: null,
       selectedGrade: null,
       search: null,
-      filteredCourses: []
+      filteredCourses: [],
     }
   },
   mounted() {
@@ -41,7 +41,7 @@ export default {
         const id = this.$route.params.id
         const course = {
           course: this.selectedCourse,
-          grade: this.selectedGrade
+          grade: this.selectedGrade,
         }
         await axios.put(`${BASE_URL}/students/${id}`, course)
       }
@@ -70,8 +70,8 @@ export default {
       this.filteredCourses = this.student.courses.filter((course) =>
         course.name.toLowerCase().includes(searching)
       )
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -107,24 +107,29 @@ export default {
       </select>
       <button @click="enroll" class="form--submit">Enroll</button>
     </div>
-    <h3 class="studentDetailsTitle">Registered in:</h3>
-    <input
-      @input="filterCourses"
-      v-model="search"
-      placeholder="Search by course"
-      class="studentListInput"
-    />
-    <div v-if="this.search">
-      <div class="course-list">
-        <div v-for="course in filteredCourses">
-          <CourseCard v-if="course" :course="course" :student="student" />
+
+    <div class="RegisteredSection">
+      <p class="RegisteredSectionTitle">Registered in:</p>
+      <input
+        @input="filterCourses"
+        v-model="search"
+        placeholder="Search by course"
+        class="studentListInput"
+      />
+      <div v-if="this.search">
+        <div class="course-list">
+          <div v-for="course in filteredCourses">
+            <CourseCard v-if="course" :course="course" :student="student" />
+            <div class="divider"></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div v-else>
-      <div class="course-list">
-        <div v-for="course in student.courses">
-          <CourseCard v-if="course" :course="course" :student="student" />
+      <div v-else>
+        <div class="course-list">
+          <div v-for="course in student.courses">
+            <CourseCard v-if="course" :course="course" :student="student" />
+            <div class="divider"></div>
+          </div>
         </div>
       </div>
     </div>
