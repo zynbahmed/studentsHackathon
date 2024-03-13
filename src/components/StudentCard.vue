@@ -10,6 +10,7 @@ export default {
     <h3 class="card__title">Name: {{ student.name }}</h3>
     <h4 class="card__content">Email: {{ student.email }}</h4>
     <h4 class="card__id">ID: {{ student.id }}</h4>
+    <h4 class="card__id">GPA: {{ student.GPA }}</h4>
     <div class="card__arrow">
       <svg
         xmlns="http://www.w3.org/2000/svg"

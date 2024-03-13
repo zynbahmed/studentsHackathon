@@ -29,8 +29,8 @@ export default {
       this.filteredStudents = this.students.filter((student) =>
         student.name.toLowerCase().includes(searching)
       )
-    },
-  },
+    }
+  }
 }
 </script>
 
