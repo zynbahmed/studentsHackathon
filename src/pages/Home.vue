@@ -1,16 +1,16 @@
 <script>
-import axios from "axios"
-import { BASE_URL } from "../globals"
-import StudentCard from "../components/StudentCard.vue"
+import axios from 'axios'
+import { BASE_URL } from '../globals'
+import StudentCard from '../components/StudentCard.vue'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: { StudentCard },
   data: function () {
     return {
       students: [],
       filteredStudents: [],
-      search: null,
+      search: null
     }
   },
   mounted() {
@@ -19,7 +19,10 @@ export default {
   methods: {
     async getStudents() {
       const response = await axios.get(`${BASE_URL}/students`)
-      this.students = response.data
+      const sorted = response.data.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      )
+      this.students = sorted
     },
     selectStudent(id) {
       this.$router.push(`/students/${id}`)
