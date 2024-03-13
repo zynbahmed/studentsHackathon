@@ -44,22 +44,24 @@ export default {
         placeholder="Search by name"
         class="studentListInput"
       />
-      <div v-if="this.search">
-        <div class="students-list">
-          <StudentCard
-            v-for="student in filteredStudents"
-            :student="student"
-            @click="selectStudent(student._id)"
-          />
+      <div>
+        <div v-if="this.search">
+          <div class="students-list">
+            <StudentCard
+              v-for="student in filteredStudents"
+              :student="student"
+              @click="selectStudent(student._id)"
+            />
+          </div>
         </div>
-      </div>
-      <div v-else>
-        <div class="students-list">
-          <StudentCard
-            v-for="student in students"
-            :student="student"
-            @click="selectStudent(student._id)"
-          />
+        <div v-else>
+          <div class="students-list">
+            <StudentCard
+              v-for="student in students"
+              :student="student"
+              @click="selectStudent(student._id)"
+            />
+          </div>
         </div>
       </div>
     </div>
