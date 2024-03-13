@@ -36,15 +36,26 @@ export default {
     },
     async enroll() {
       const id = this.$route.params.id
-      const course = { course: this.selectedCourse }
+      const course = { course: this.selectedCourse, grade: this.selectedGrade }
       await axios.put(`${BASE_URL}/students/${id}`, course)
-      this.courses = ""
     },
     selectCourse(event) {
       this.selectedCourse = event.target.value
     },
     selectGrade(event) {
       this.selectedGrade = event.target.value
+    },
+    filterAvailableCourses() {
+      if (!this.courses || !this.student.courses) {
+        return []
+      }
+
+      return this.courses.filter((course) => {
+        return !this.student.courses.some(
+          (enrolledCourse) =>
+            enrolledCourse._id.toString() === course._id.toString()
+        )
+      })
     },
   },
 }
@@ -64,7 +75,8 @@ export default {
         @change="selectCourse"
         className="form--input"
       >
-        <option v-for="course in courses" :value="course._id">
+        <option selected disabled>Select a Course</option>
+        <option v-for="course in filterAvailableCourses()" :value="course._id">
           {{ course.name }}
         </option>
       </select>
@@ -74,6 +86,7 @@ export default {
         @change="selectGrade"
         className="form--input"
       >
+        <option selected disabled>Select a Grade</option>
         <option v-for="grade in grades" :value="grade._id">
           {{ grade.letter }}
         </option>
@@ -82,11 +95,9 @@ export default {
     </div>
     <h3 class="studentDetailsTitle">Registered in:</h3>
     <div class="course-list">
-      <CourseCard
-        v-for="course in student.courses"
-        :course="course"
-        :student="student"
-      />
+      <div v-for="course in student.courses">
+        <CourseCard v-if="course" :course="course" :student="student" />
+      </div>
     </div>
   </div>
 </template>
