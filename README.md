@@ -1,10 +1,6 @@
-# Vue 3 + Vite
+# Student Hub
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+#### Discover StudentHub: Your all-in-one solution for streamlined academic management. This user-friendly app centralizes student details, including names, emails, classes, and GPAs, in a secure and intuitive interface. Stay connected with built-in communication features, manage classes effortlessly, and track GPAs in real-time. Personalized dashboards, secure access, and cross-platform compatibility make StudentHub the go-to app for a more efficient and connected academic experience.
 
 ## Mockup
 
@@ -13,3 +9,13 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ![Student List](/public/images/Landing%20page-1.png)
 
 ![Student List](/public/images/Landing%20page-2.png)
+
+
+## Screenshots
+
+![///](/public/images/111.png)
+![///](/public/images/222.png)
+![///](/public/images/333.png)
+![///](/public/images/444.png)
+![///](/public/images/555.png)
+
