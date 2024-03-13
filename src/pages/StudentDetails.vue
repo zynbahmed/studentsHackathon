@@ -93,10 +93,13 @@ export default {
       </select>
       <button @click="enroll" class="form--submit">Enroll</button>
     </div>
-    <h3 class="studentDetailsTitle">Registered in:</h3>
+  </div>
+  <div class="RegisteredSection">
+    <p class="RegisteredSectionTitle">Registered in:</p>
     <div class="course-list">
       <div v-for="course in student.courses">
         <CourseCard v-if="course" :course="course" :student="student" />
+        <div class="divider"></div>
       </div>
     </div>
   </div>

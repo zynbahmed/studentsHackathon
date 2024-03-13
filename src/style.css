@@ -18,7 +18,7 @@ main {
   width: 500px;
   height: 400px;
   margin-top: 30px;
-  margin: 100px;
+  margin: 90px;
   box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.121);
 }
 
@@ -334,4 +334,29 @@ a {
   justify-content: center;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.RegisteredSectionTitle {
+  color: rgb(77, 75, 75);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 60px;
+}
+
+.RegisteredSection {
+  height: 480px;
+}
+
+.course-list {
+  color: #4d2079;
+  font-size: 12px;
+}
+
+.divider {
+  border-bottom: 1px solid #bebebe;
+  width: 430px;
+  margin-top: 20px;
 }
