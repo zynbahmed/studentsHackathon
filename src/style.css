@@ -1,79 +1,337 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* div {
+  width: 80%;
+} */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+.studentDetailsForm {
+  background-color: #f1f1f3;
+  padding: 3.125em;
+  border-radius: 10px;
+  width: 500px;
+  height: 400px;
+  margin-top: 30px;
+  margin: 100px;
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.121);
 }
-a:hover {
-  color: #535bf2;
+
+.studentDetailsTitle {
+  color: rgb(77, 75, 75);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 0.5em;
+}
+
+.form--input {
+  margin-bottom: 1.25em;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0.8em;
+  font-family: "Inter", sans-serif;
+  outline: none;
+}
+
+.form--input:focus {
+  border: 1px solid #639;
+  outline: none;
+}
+
+.input[type="checkbox"] {
+  accent-color: #639;
+}
+
+.form--submit {
+  width: 50%;
+  padding: 0.625em;
+  border-radius: 5px;
+  color: white;
+  background-color: #639;
+  border: 1px dashed #639;
+  cursor: pointer;
+}
+
+.form--submit:hover {
+  color: #639;
+  background-color: white;
+  border: 1px dashed #639;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.topnav {
+  overflow: hidden;
+  background-color: #639;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.topnav a {
+  float: left;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #4d2079;
+  color: #fff;
+}
+
+.svgIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.topnav .search-container {
+  /* float: right; */
+}
+
+.topnav input[type="text"] {
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  border: 0.5px solid #c0c0c0;
+  box-sizing: border-box;
+  padding: 4px 10px;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+a {
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  color: #639;
+  text-decoration: inherit;
+}
+
+.course-form {
+  width: 470px;
+  height: 280px;
+  margin-top: 80px;
+  background-color: #f1f1f3;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 5px 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.student-form {
+  width: 470px;
+  height: 400px;
+  margin-top: 80px;
+  background-color: #f1f1f3;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 5px 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.courseForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.studentForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.addForm {
+  color: rgb(77, 75, 75);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  font-weight: bold;
+  font-size: x-large;
+  margin-bottom: 25px;
+  margin-top: 75px;
+}
+
+.form--input {
+  width: 100%;
+  margin-bottom: 1.25em;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #8080803b;
+  padding: 0.8em;
+  font-family: "Inter", sans-serif;
+  outline: none;
+}
+
+.form--input:focus {
+  border: 1px solid #639;
+  outline: none;
+}
+
+.form--submit {
+  width: 50%;
+  padding: 0.625em;
+  border-radius: 8px;
+  color: white;
+  background-color: #639;
+  border: 1px dashed #639;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.form--submit:hover {
+  color: #639;
+  background-color: white;
+  border: 1px dashed #639;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .card {
-  padding: 2em;
+  --border-radius: 12px;
+  --primary-color: #639;
+  --secondary-color: #433852;
+  width: 410px;
+  font-family: "Arial";
+  padding: 20px 20px 20px 50px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  background: #f1f1f3;
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 3%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.card > * + * {
+  margin-top: 1.1em;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.card .card__content {
+  color: var(--secondary-color);
+  font-size: 0.86rem;
+}
+
+.card .card__title {
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card .card__id {
+  color: #6e6b80;
+  font-size: 0.8rem;
+}
+
+.card .card__arrow {
+  position: absolute;
+  background: var(--primary-color);
+  padding: 0.4rem;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  bottom: 0;
+  right: 0;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card svg {
+  transition: 0.2s;
+}
+
+.card:hover .card__title {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.card:hover .card__arrow {
+  background: #4d2079;
+}
+
+.card:hover .card__arrow svg {
+  transform: translateX(1.5px);
+}
+
+.group {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.studentListInput {
+  width: 300px;
+  height: 30px;
+  padding: 0 1rem;
+  /* padding-left: 2.5rem; */
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f4f4f4;
+  color: #0d0c22;
+  transition: 0.3s ease;
+}
+
+.studentListInput::placeholder {
+  color: #9e9ea7;
+}
+
+.studentListInput:focus,
+.studentListInput:hover {
+  outline: none;
+  border-color: rgba(102, 51, 153, 0.574);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(0 48 73 / 10%);
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #9e9ea7;
+  width: 1rem;
+  height: 1rem;
+}
+
+.hpTitle {
+  color: rgb(77, 75, 75);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }

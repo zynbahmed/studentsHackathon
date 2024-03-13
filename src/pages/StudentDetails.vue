@@ -1,10 +1,10 @@
 <script>
-import axios from 'axios'
-import { BASE_URL } from '../globals'
-import CourseCard from '../components/CourseCard.vue'
+import axios from "axios"
+import { BASE_URL } from "../globals"
+import CourseCard from "../components/CourseCard.vue"
 
 export default {
-  name: 'StudentDetails',
+  name: "StudentDetails",
   components: { CourseCard },
   data: function () {
     return {
@@ -12,7 +12,7 @@ export default {
       courses: [],
       grades: [],
       selectedCourse: null,
-      selectedGrade: null
+      selectedGrade: null,
     }
   },
   mounted() {
@@ -38,37 +38,49 @@ export default {
       const id = this.$route.params.id
       const course = { course: this.selectedCourse }
       await axios.put(`${BASE_URL}/students/${id}`, course)
-      this.courses = ''
+      this.courses = ""
     },
     selectCourse(event) {
       this.selectedCourse = event.target.value
     },
     selectGrade(event) {
       this.selectedGrade = event.target.value
-    }
-  }
+    },
+  },
 }
 </script>
 
 <template>
-  <div class="student-details">
-    <h2>Name: {{ student.name }}</h2>
-    <h3>Email: {{ student.email }}</h3>
-    <h3>ID: {{ student.id }}</h3>
+  <div class="studentDetailsForm">
+    <span class="studentDetailsTitle">
+      <p>Name: {{ student.name }}</p>
+      <p>Email: {{ student.email }}</p>
+      <p>ID: {{ student.id }}</p>
+    </span>
     <div class="enroll">
-      <select v-if="courses" name="courses" @change="selectCourse">
+      <select
+        v-if="courses"
+        name="courses"
+        @change="selectCourse"
+        className="form--input"
+      >
         <option v-for="course in courses" :value="course._id">
           {{ course.name }}
         </option>
       </select>
-      <select v-if="grades" name="grades" @change="selectGrade">
+      <select
+        v-if="grades"
+        name="grades"
+        @change="selectGrade"
+        className="form--input"
+      >
         <option v-for="grade in grades" :value="grade._id">
           {{ grade.letter }}
         </option>
       </select>
-      <button @click="enroll">Enroll</button>
+      <button @click="enroll" class="form--submit">Enroll</button>
     </div>
-    <h3>Registered in:</h3>
+    <h3 class="studentDetailsTitle">Registered in:</h3>
     <div class="course-list">
       <CourseCard
         v-for="course in student.courses"

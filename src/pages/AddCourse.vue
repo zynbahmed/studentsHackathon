@@ -1,11 +1,11 @@
 <script>
-import axios from 'axios'
-import { BASE_URL } from '../globals'
+import axios from "axios"
+import { BASE_URL } from "../globals"
 export default {
-  name: 'AddCourse',
+  name: "AddCourse",
   data: function () {
     return {
-      name: ''
+      name: "",
     }
   },
   methods: {
@@ -16,18 +16,26 @@ export default {
       event.preventDefault()
       const course = { name: this.name }
       await axios.post(`${BASE_URL}/courses`, course)
-      this.name = ''
-    }
-  }
+      this.name = ""
+    },
+  },
 }
 </script>
 
 <template>
   <div class="course-form">
-    <form action="" @submit="handleSubmit">
-      <label for="name">Name</label>
-      <input type="text" id="name" @change="handleFormChange" :value="name" />
-      <button>Add</button>
+    <form action="" @submit="handleSubmit" class="courseForm">
+      <span class="addForm">Add Course</span>
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Course Name"
+        class="form--input"
+        @change="handleFormChange"
+        :value="name"
+      />
+      <button class="form--submit">Add</button>
     </form>
   </div>
 </template>
