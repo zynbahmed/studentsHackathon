@@ -1,6 +1,4 @@
 <script>
-import AddCourse from '../pages/AddCourse.vue'
-
 export default {
   name: 'CourseCard',
   data: function () {
@@ -18,13 +16,14 @@ export default {
       }
 
       const studentGrade = this.course.grades.find(
-        (gradeEntry) => gradeEntry.student._id.toString() === this.student._id.toString()
+        (gradeEntry) =>
+          gradeEntry.student._id.toString() === this.student._id.toString()
       )
 
       if (studentGrade) {
         this.grade = studentGrade.grade
+      }
     }
-  }
   }
 }
 </script>
