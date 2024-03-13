@@ -343,16 +343,18 @@ a {
   display: block;
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 60px;
+  margin-top: 170px;
+  margin-bottom: 50px;
 }
 
 .RegisteredSection {
-  height: 480px;
+  height: 580px;
 }
 
 .course-list {
   color: #4d2079;
   font-size: 12px;
+  padding-top: 50px;
 }
 
 .divider {
