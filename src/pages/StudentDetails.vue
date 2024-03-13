@@ -81,6 +81,7 @@ export default {
       <p>Name: {{ student.name }}</p>
       <p>Email: {{ student.email }}</p>
       <p>ID: {{ student.id }}</p>
+      <p>GPA: {{ student.GPA  }}</p>
     </span>
     <div class="enroll">
       <select
